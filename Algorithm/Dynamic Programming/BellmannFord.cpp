@@ -63,6 +63,15 @@ void bellmannFord(int r){
             }
         }
     }
+    //check for -ve weighted cycle
+    for(int i=0;i<noe;i++){
+        int u=x[i].v1;
+        int v=x[i].v2;
+        if(dist[u]+adjMatrix[u][v]<dist[v]){
+            cout<<"Negative weighted cycle present !!"<<endl;
+            return;
+        }   
+    }    
 }
 
 void showPath(int i){
